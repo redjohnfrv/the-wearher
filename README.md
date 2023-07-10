@@ -2,6 +2,10 @@
 
 Please, use yarn!
 
+# REMOTE NAME
+
+weather
+
 # STAGE: 
 
 https://the-wearher.vercel.app/

@@ -2,7 +2,7 @@ import React from 'react';
 
 const App = () => {
   return (
-    <>The weather app</>
+    <>The weather app with Vercel</>
   );
 }
 

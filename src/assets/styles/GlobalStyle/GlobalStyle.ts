@@ -1,8 +1,16 @@
 import { createGlobalStyle } from 'styled-components';
-import { colors } from './colors';
-import { typography } from './typography';
+import { colors } from '../colors';
+import { typography } from '../typography';
 
 export const GlobalStyle = createGlobalStyle`  
+    html, body {
+        height: 100%;
+
+        & > div {
+            height: 100%;
+        }
+    }
+
     body {    
         margin: 0;    
         padding: 0;    

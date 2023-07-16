@@ -4,19 +4,7 @@ import { geolocation } from '../constants';
 export const getWeatherData = async () => {
     const baseUrl = process.env.REACT_APP_BASE_URL;
     const apiKey = process.env.REACT_APP_API_KEY;
+    const url = `${baseUrl}?lat=${geolocation.lat}&lon=${geolocation.lon}&appid=${apiKey}`;
 
-    axios
-        .get(
-            `${baseUrl}?lat=${geolocation.lat}&lon=${geolocation.lon}&appid=${apiKey}`
-        )
-        .then((response) => {
-            // TODO delete this log
-            console.log(response.data);
-
-            return response.data;
-        })
-        .catch((error) => {
-            /// TODO make a error toast
-            console.error(error);
-        });
+    return axios.get(url).then((response) => response.data);
 };

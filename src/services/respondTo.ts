@@ -8,7 +8,7 @@ export const respondTo = (Object.keys(breakpoints) as BreakpointKeys[]).reduce<
 >(
     (accumulator, label) => {
         accumulator[label] = (...args: Parameters<typeof css>) => css`
-            @media (min-width: ${breakpoints[label] + 'px'}) {
+            @media (max-width: ${breakpoints[label] + 'px'}) {
                 ${css(...args)};
             }
         `;

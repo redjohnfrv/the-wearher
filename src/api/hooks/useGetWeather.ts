@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
 import { getWeatherData } from '..';
-import { Weather } from '../dto/weather';
+import { WeatherResponse } from '../dto/weather';
 
 export const useGetWeather = () => {
     const [isLoading, setLoading] = useState(false);
     const [isError, setError] = useState(false);
-    const [data, setData] = useState<Partial<Weather> | undefined>(undefined);
+    const [data, setData] = useState<Partial<WeatherResponse> | undefined>(undefined);
 
     const getWeather = async () => {
         setLoading(true);
 
         try {
-            const response: Partial<Weather> = await getWeatherData();
+            const response: Partial<WeatherResponse> = await getWeatherData();
 
             if (response) {
                 setData(response);

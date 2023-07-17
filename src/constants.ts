@@ -9,11 +9,11 @@ export const geolocation = {
 export const KELVIN_FOR_CELSIUS_DIFF = 273.15
 
 export const days = [
-    'monday',
-    'tuesday',
-    'wednesday',
-    'thursday',
-    'friday',
-    'saturday',
-    'sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
 ];

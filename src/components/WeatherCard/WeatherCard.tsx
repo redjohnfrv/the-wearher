@@ -9,29 +9,53 @@ type Props = {
 };
 
 export const WeatherCard = ({ day, isExtended, onCardClick }: Props) => {
+    const shortDay = day.slice(0, 2);
+
     return (
         <Root $isExtended={isExtended} onClick={onCardClick}>
-            {day}
+            {isExtended ? day : shortDay}
         </Root>
     );
 };
 
 const Root = styled.div<{ $isExtended: boolean }>`
-    border: 1px solid black;
-    text-align: center;
-
     width: 100px;
     min-width: 100px;
     height: 700px;
     min-height: 700px;
     padding: 16px;
-
+    text-align: center;
     overflow: hidden;
     cursor: pointer;
     transition: all ease 0.5s;
     will-change: width, min-width;
 
-    ${({ $isExtended }) => $isExtended && css`width: 400px; min-width: 400px;`};
+    ${({ theme: { colors } }) => `color: ${colors.default.darkBlue}`};
+
+    ${({ theme: { colors } }) =>
+        `border: 1px solid ${colors.default.darkBlue}`};
+
+    border-right: none;
+
+    &:last-of-type {
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
+
+        ${({ theme: { colors } }) =>
+            `border-right: 1px solid ${colors.default.darkBlue}`};
+    }
+
+    &:first-of-type {
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+    }
+
+    ${({ $isExtended }) =>
+        $isExtended &&
+        css`
+            width: 400px;
+            min-width: 400px;
+        `};
 
     ${({ $isExtended }) => respondTo.l`
         height: 550px;

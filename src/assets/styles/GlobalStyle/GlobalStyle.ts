@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import { colors } from '../colors';
 import { typography } from '../typography';
 
 export const GlobalStyle = createGlobalStyle`  
@@ -14,7 +13,6 @@ export const GlobalStyle = createGlobalStyle`
     body {    
         margin: 0;    
         padding: 0;    
-        color: ${() => colors.grayscale[900]};    
         ${() => typography.normal};  
     }  
     
@@ -25,7 +23,6 @@ export const GlobalStyle = createGlobalStyle`
     
     a {    
         text-decoration: none;    
-        color: ${() => colors.grayscale[900]};  
     }  
     
     img {    

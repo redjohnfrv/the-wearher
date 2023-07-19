@@ -1,13 +1,25 @@
 import { css } from 'styled-components';
-import { colors } from '../colors';
+import { theme } from '../theme/theme';
 
 export const styleMixin = {
-    mainGradient: css`
-        background-image: linear-gradient(
-            to bottom,
-            ${colors.default.blue},
-            ${colors.grayscale[100]},
-            ${colors.default.gold}
-        );
-    `,
+    sunny: {
+        mainGradient: css`
+            background-image: linear-gradient(
+                to bottom,
+                ${theme.sunny.colors.default.blue},
+                ${theme.sunny.colors.grayscale[100]},
+                ${theme.sunny.colors.default.gold}
+            );
+        `,
+    },
+    rainy: {
+        mainGradient: css`
+            background-image: linear-gradient(
+                to bottom,
+                ${theme.rainy.colors.default.blue},
+                ${theme.rainy.colors.grayscale[100]},
+                ${theme.rainy.colors.default.gold}
+            );
+        `,
+    },
 };

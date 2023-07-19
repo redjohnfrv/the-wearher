@@ -6,6 +6,7 @@ import { fromArray } from '../../helpers/fromArray';
 
 export const WeatherList = () => {
     const [extendedCard, setExtendedCard] = useState<string>('');
+    // TODO need toasts
     const { isError, isLoading, data } = useGetWeather();
     const currentDayName = Date.getDayName(data?.dt)
 

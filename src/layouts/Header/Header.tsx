@@ -1,7 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import weather from '../../assets/images/weather.png';
-import { colors } from '../../assets/styles/colors';
 import { typography } from '../../assets/styles/typography';
 import { respondTo } from '../../services/respondTo';
 
@@ -19,7 +18,7 @@ const Root = styled.header`
     display: flex;
     gap: 12px;
     align-items: center;
-    align-self: flex-start;
+    justify-content: center;
     width: 100%;
     height: 120px;
     margin-bottom: 24px;
@@ -30,7 +29,7 @@ const Root = styled.header`
     }
 
     & p {
-        color: ${colors.default.darkBlue};
+        color: ${({ theme: {colors} }) => colors.default.darkBlue};
 
         ${typography.logo};
     }

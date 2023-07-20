@@ -3,6 +3,7 @@ import { typography } from '../typography';
 
 export const GlobalStyle = createGlobalStyle`  
     html, body {
+        box-sizing: border-box;
         height: 100%;
 
         & > div {
@@ -44,6 +45,10 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;    
         margin: 0;  
     }  
+
+    h2 {
+        ${() => typography.title};
+    }
     
     span {    
         display: inline-block;  

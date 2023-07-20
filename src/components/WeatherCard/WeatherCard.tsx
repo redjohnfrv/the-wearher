@@ -1,6 +1,7 @@
 import React from 'react';
 import { css, styled } from 'styled-components';
 import { respondTo } from '../../services/respondTo';
+import { CardHeader } from './components/CardHeader';
 
 type Props = {
     day: string;
@@ -13,7 +14,7 @@ export const WeatherCard = ({ day, isExtended, onCardClick }: Props) => {
 
     return (
         <Root $isExtended={isExtended} onClick={onCardClick}>
-            {isExtended ? day : shortDay}
+            <CardHeader title={isExtended ? day : shortDay} />
         </Root>
     );
 };
@@ -28,9 +29,15 @@ const Root = styled.div<{ $isExtended: boolean }>`
     overflow: hidden;
     cursor: pointer;
     transition: all ease 0.5s;
-    will-change: width, min-width;
+    will-change: width, min-width, transform;
 
-    ${({ theme: { colors } }) => `color: ${colors.default.darkBlue}`};
+    ${({ theme: { colors } }) =>
+        `background-image: linear-gradient(
+                to bottom,
+                ${colors.default.blue},
+                ${colors.grayscale[100]},
+                ${colors.default.darkBlue}
+            );`};
 
     ${({ theme: { colors } }) =>
         `border: 1px solid ${colors.default.darkBlue}`};
@@ -48,6 +55,10 @@ const Root = styled.div<{ $isExtended: boolean }>`
     &:first-of-type {
         border-top-left-radius: 12px;
         border-bottom-left-radius: 12px;
+    }
+
+    &:hover {
+        ${({ $isExtended }) => !$isExtended && `transform: scale(1.07, 1)`};
     }
 
     ${({ $isExtended }) =>

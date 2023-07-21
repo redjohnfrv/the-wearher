@@ -1,8 +1,8 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import weather from '../../assets/images/weather.png';
-import { typography } from '../../assets/styles/typography';
-import { respondTo } from '../../services/respondTo';
+import weather from 'assets/images/weather.png';
+import { typography } from 'assets/styles/typography';
+import { respondTo } from 'services/respondTo';
 
 export const Header = () => {
     return (

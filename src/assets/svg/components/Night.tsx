@@ -3,8 +3,8 @@ import type { SVGProps } from 'react';
 import { theme } from '../../styles/theme/theme';
 
 export const NightIcon = ({
-    width = 24,
-    height = 24,
+    width = 40,
+    height = 40,
     fill = theme.sunny.colors.default.darkBlue,
     ...props
 }: SVGProps<SVGSVGElement>) => (

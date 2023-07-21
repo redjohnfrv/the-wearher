@@ -1,8 +1,8 @@
 import React, { ReactNode, useContext } from 'react';
 import { RuleSet, styled } from 'styled-components';
-import { styleMixin } from '../../assets/styles/mixins';
+import { styleMixin } from 'assets/styles/mixins';
 import { Header } from '../Header';
-import { ThemeContext } from '../../providers/ThemeProvider';
+import { ThemeContext } from 'providers/ThemeProvider';
 
 type Props = {
     children: ReactNode;

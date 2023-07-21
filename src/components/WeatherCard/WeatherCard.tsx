@@ -1,22 +1,24 @@
 import React from 'react';
 import { css, styled } from 'styled-components';
-import { respondTo } from '../../services/respondTo';
+import { respondTo } from 'services/respondTo';
 import { CardHeader, CardContentExtended } from './components';
+import { OptionsListType } from 'api/dto/weather';
 
 type Props = {
     day: string;
+    options: OptionsListType;
     isExtended: boolean;
     onCardClick: () => void;
 };
 
-export const WeatherCard = ({ day, isExtended, onCardClick }: Props) => {
+export const WeatherCard = ({ day, options, isExtended, onCardClick }: Props) => {
     const shortDay = day.slice(0, 2);
 
     return (
         <Root $isExtended={isExtended} onClick={onCardClick}>
             <CardHeader title={isExtended ? day : shortDay} />
             
-            {isExtended && <CardContentExtended />}
+            {isExtended && <CardContentExtended options={options} />}
         </Root>
     );
 };

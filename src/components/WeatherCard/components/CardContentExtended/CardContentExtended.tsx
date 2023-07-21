@@ -1,17 +1,30 @@
 import React from 'react';
-import { TempratureIcon } from '../../../../assets/svg/components';
 import { styled } from 'styled-components';
+import { OptionsListType } from 'api/dto/weather';
+import { OptionBox } from './components';
 
-export const CardContentExtended = () => {
+type CardContentExtendedProps = {
+    options: OptionsListType;
+};
+
+export const CardContentExtended = ({ options }: CardContentExtendedProps) => {
     return (
         <Root>
-            <TempratureIcon />
+            {Object.entries(options).map(([_, value]) => (
+                <OptionBox
+                    key={value.value}
+                    value={String(value.value)}
+                    Icon={value?.icon}
+                />
+            ))}
         </Root>
     );
 };
 
 export const Root = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
+    gap: 12px;
     width: 100%;
 `;

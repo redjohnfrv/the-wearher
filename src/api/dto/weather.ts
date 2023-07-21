@@ -36,7 +36,7 @@ export type Sys = {
     sunset: number
 }
 
-export interface WeatherResponse {
+export type WeatherResponse = {
         coord: Coord;
         weather: Weather[],
         base: string,
@@ -50,4 +50,16 @@ export interface WeatherResponse {
         id: number,
         name: string,
         cod: number,
+}
+
+type Option = {
+    value?: string | number;
+    icon?: JSX.Element;
+}
+
+export type OptionsListType = {
+    date: Option;
+    temperature: Option;
+    wind: Option;
+    clouds: Option;
 }

@@ -9,6 +9,13 @@ class DateVo {
 
         return daysAdapter[normalizedDay];
     }
+
+    public getDate(day?: number) {
+        const correctDay = fromNumber.getCorrectDt(day)
+        const normalizedDay = dayjs(correctDay).format('MMMM d') as Days;
+
+        return normalizedDay;
+    }
 }
 
 export const Date = new DateVo()

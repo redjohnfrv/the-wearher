@@ -1,7 +1,7 @@
 import React from 'react';
 import { css, styled } from 'styled-components';
 import { respondTo } from '../../services/respondTo';
-import { CardHeader } from './components/CardHeader';
+import { CardHeader, CardContentExtended } from './components';
 
 type Props = {
     day: string;
@@ -15,6 +15,8 @@ export const WeatherCard = ({ day, isExtended, onCardClick }: Props) => {
     return (
         <Root $isExtended={isExtended} onClick={onCardClick}>
             <CardHeader title={isExtended ? day : shortDay} />
+            
+            {isExtended && <CardContentExtended />}
         </Root>
     );
 };

@@ -1,0 +1,1 @@
+export { CardContentExtended } from './CardContentExtended';

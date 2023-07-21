@@ -11,7 +11,7 @@ export const CardHeader = ({ title }: CardHeaderProps) => {
 
 const Root = styled.h2`
     position: relative;
-    margin: 0 10px;
+    margin: 0 10px 24px;
 
     ${({ theme: { colors } }) => `color: ${colors.default.darkBlue}`};
 

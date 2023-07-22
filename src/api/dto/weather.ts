@@ -59,7 +59,7 @@ type Option = {
 
 export type OptionsListType = {
     date: Option;
-    temperature: Option;
-    wind: Option;
-    clouds: Option;
+    temperature?: Option;
+    wind?: Option;
+    clouds?: Option;
 }

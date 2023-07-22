@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from 'styled-components';
+import { keyframes, styled } from 'styled-components';
 import { typography } from 'assets/styles/typography';
 
 type OptionBoxProps = {
@@ -16,25 +16,27 @@ export const OptionBox = ({ value, Icon }: OptionBoxProps) => {
     );
 };
 
+const appearAnimation = keyframes`
+    to {
+      width: 100%;
+      opacity: 1;
+    }
+  `;
+
 const Root = styled.div`
     position: relative;
     display: flex;
     align-items: flex-start;
     gap: 18px;
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+
+    animation: ${appearAnimation} 0.6s linear forwards;
 
     &:first-of-type {
         margin-bottom: 30px;
-
-        &:after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 0;
-            height: 1px;
-            width: 80%;
-
-            ${({theme: {colors}}) => `background-color: ${colors.default.darkBlue};`};
-        }
     }
 `;
 

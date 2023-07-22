@@ -1,22 +1,29 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import { OptionsListType } from 'api/dto/weather';
-import { OptionBox } from './components';
+import { NoData, OptionBox } from 'ui';
 
 type CardContentExtendedProps = {
     options: OptionsListType;
 };
 
 export const CardContentExtended = ({ options }: CardContentExtendedProps) => {
+    const optionsList = Object.entries(options);
+    const hasData = optionsList?.length > 1;
+
     return (
         <Root>
-            {Object.entries(options).map(([_, value]) => (
-                <OptionBox
-                    key={value.value}
-                    value={String(value.value)}
-                    Icon={value?.icon}
-                />
-            ))}
+            {optionsList.map(([_, value]) => {
+                return (
+                    <OptionBox
+                        key={value.value}
+                        value={String(value.value)}
+                        Icon={value?.icon}
+                    />
+                );
+            })}
+
+            {!hasData && <NoData />}
         </Root>
     );
 };
